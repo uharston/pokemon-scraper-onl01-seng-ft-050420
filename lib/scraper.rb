@@ -3,6 +3,7 @@ class Scraper
   attr_accessor :file, :parsed_file, :all_pokemon, :db
 
   def initialize(db)
+    binding.pry
     self.db = db
     self.file = File.open("pokemon_index.html")
     self.parsed_file = Nokogiri::HTML.parse(file)
@@ -10,6 +11,7 @@ class Scraper
   end
 
   def catch_em_all
+    binding.pry
     self.all_pokemon = parsed_file.css(".infocard-tall")
   end
 
